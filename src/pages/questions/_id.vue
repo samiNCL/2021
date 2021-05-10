@@ -1,10 +1,17 @@
 <template>
   <!-- here you used v-on:click , v-bind , computed (return) , method that affect computed
  -->
+<!-- Posts is an array . Computed method used to dind the current selected. It called post. each post is an object has three
+elements. You access them like: post.id , post.question , post.detail etc..
+Now either change your vuex to have these elements. or .. you can put an id . it is easy.
+id++ pushed to the state then shared every where. -> Change vuex.
 
+ -->
   <div>
     <!--  -->
     <div class="pt-24 font-sans lg:flex items-center justify-center bg-blue-darker w-full py-8">
+
+
       <div class="rounded max-w-xl w-full leading-normal border rounded-lg">
         <h3 class="">
           {{ post.question }}
@@ -36,7 +43,9 @@
           <p class="aqx" id="demo2"></p>
 
           <!-- 3 -->
+          <br/>
 
+<br />
           <script>
             let i2 = 0;
             let txt2 = "Sorry. This question is not editable.";
@@ -56,8 +65,41 @@
         </div>
       </div>
       <p class="aqx" id="demo max-w-sm"></p>
-      Put share here
-    </div>
+      <!-- Put any side here like date of the post future work? -->
+      <!--  -->
+     </div>
+
+
+<!-- Twitter hashtag button send .. To Twitter -->
+ <div>
+
+      <a
+      href="https://twitter.com/intent/tweet?button_hashtag=QandACommunity"
+      class="twitter-hashtag-button"
+      data-size="large"
+      v-bind:data-text="post.question"
+      data-lang="en"
+      data-show-count="false">
+       Q&amp;ACommunity
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </a>
+
+  </div>
+  <br/>
+<!--  End ToTwitter-->
+<!-- -->
+
+<!--think how to do routing for your own data rather than using hard data-->
+
+<!--  -->
+
+
+
+
+
+
+
+
 
     <!--Here is the problem
 Solved. Thanks God
@@ -65,7 +107,7 @@ Solved. Thanks God
 
     <ul class="block group" v-bind:style="{ display: changeDisplayQ }">
       <li class="font-bold text-lg aq" v-for="q in OtherQuestions">
-        <nuxt-link :to="q.id"> {{ "👉  " + " " + q.question }}</nuxt-link>
+        <nuxt-link :to="q.id">  {{ "👉  " + " " + q.question }}</nuxt-link>
       </li>
     </ul>
 

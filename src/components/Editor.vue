@@ -6,7 +6,7 @@ They both take the input of text area so I can deal with it. V-model much easier
 
 How to move this with you.
 -->
-    <form style="margin: 1%" class="p-8" @submit.prevent="handleSubmit">
+    <form style="margin: 1%" class="p-8" @submit.prevent="noSubmit" >
       <label class="block mb-2 text-sm font-semibold" for="message">
         {{ $t("contact.message") }}
       </label>
@@ -15,7 +15,6 @@ How to move this with you.
       <textarea
         style="border-style: double"
         v-model="message"
-        @input="inputFunction"
         rows="4"
         cols="80"
         id="message"
@@ -35,65 +34,49 @@ How to move this with you.
       </p>
     </form>
     <br />
+     <p class="font-semibold clr text-lg">{{ message }}</p>
 
-    <!-- vue-good-table
-      :columns="columns"
-      :rows="rows"
+<table v-for="q in questions">
 
-      @on-cell-click="onCellClick"
-
- :search-options="{
-    enabled: true
-  }"
+     <td><tr class="border-dotted border-2 border-light-blue-200"
       >
-    </vue-good-table>
-     <hr /> -->
+       <nuxt-link   to="#"> {{ q.question }}</nuxt-link>
+      </tr></td>
+    </table>
 
-    <h3>My Posts</h3>
-    <ul v-for="x in rows" :key="x.note">
-      <li class="font-semibold aq">
-        <nuxt-link to="#"> {{ x.note }}</nuxt-link>
-      </li>
-    </ul>
-    <hr />
-    <p class="font-semibold text-orange-700 text-lg">{{ message }}</p>
 
-    <!-- Contact form -->
-    <!--  -->
-    <!--  -->
+
+
+
   </div>
 
-  <!-- <button @click="persist">Save</button>
-   -->
+
 </template>
 
 <script>
 export default {
+  computed: {
+// Bring values from vuex to pass them above in template
+//the logic of saving data is in index.js in store folder (vuex)
+    questions() {
+      return this.$store.state.list;
+    }
+    ,
+    question() {
+      return this.$store.state.question;
+    }
+  }
+  ,
   name: "my-component",
   data() {
     return {
       message: "",
       errorMessage: "",
       successMessage: "",
-      xy: [],
 
-      columns: [
-        {
-          label: "Search your posts",
-          field: "note"
-        }
-      ],
-      rows: [
-        { note: "How can a given string be reversed? I shall ask this soon" },
-        { note: "JS is awsome!" },
-        { note: "Linux courswork is all about Terminal" }
-      ]
     };
   },
-  // export default{
-  // props:{
-  // 		question:{type:String}
-  // used to get data from storage to here.(IDB)
+  // ... with a link and send to twitter
 
   mounted() {
     if (localStorage.note) {
@@ -101,21 +84,12 @@ export default {
     }
   },
   methods: {
-    inputFunction(e) {
-      var x = e.target.value;
-      console.log("Hi , I worked. Find me in Editor.vue.This is my value:" + x);
-    },
-
-    // onCellClick(params) {
-    //Wanna get the question to put it in link. should be there an easier approach
-    // this.rows.push({note:this.message});
-    //   // you do not need this
-    //   console.log(params.row);
-    //   console.log(params.column);
-    //   console.log(params.rowIndex);
-    //   console.log(params.event);
+    // inputFunction:function()  {
+    //   // var x = e.target.value;
+    //   // console.log("Hi , I worked. Find me in Editor.vue.This is my value:" + x);
     // },
-    handleSubmit() {
+
+    handleSubmit: function() {
       if (!!this.message) {
         this.$ga.event({
           eventCategory: "Contact",
@@ -129,31 +103,35 @@ export default {
         this.successMessage = "";
       }
 
-      // if there is a message , put it in the array to be diplayed.
 
-      if (this.message) {
-        this.rows.push({ note: this.message });
-        console.log(" I wrote " + this.message);
-
-        //save to array . new array update the older one
-        localStorage.rows = this.rows;
-        console.log(localStorage.rows);
-        let xyz = localStorage.rows;
-        console.log("This" + xyz);
-        this.message = " ";
-        // location.reload(true); if you could save to json you can run this code.
+      // Also , save to vuex for persistence
+      if (this.question.indexOf(this.message) === -1) {
+        this.$store.commit("add", this.message);
+      } else {
+        this.successMessage ="";
+        this.errorMessage = "Error. text is empty or already sent."
       }
-    }
+    },
 
-    // persist() {
+    // console.log("Your question saved: " + this.message);
+    noSubmit: function() {
+      console.log("ok");
+    }},
 
-    // }
-  }
-};
+
+}
 </script>
 
 <style scoped>
-.aq a:hover {
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+hr {width: 13rem}
+h1,h2,h3,h4,h5,h6{ font-family: 'Itim', cursive;}
+
+a:hover ,tr:hover {
   color: palevioletred;
+  border-color: #DB7093;
 }
+/* .clr { color:#add9e8}  Nice color light blue for dark mode*/
+.clr { color:#afeede}
+
 </style>
