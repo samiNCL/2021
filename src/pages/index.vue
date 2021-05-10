@@ -20,9 +20,21 @@
 <!--      -->
 
 
+<!-- All saved questions looped and linked to test folder page for dynamic pages
+ Now make this work for questions folder by change the link and adapt it to that page.-->
+      <p>Go to test page from link bellow, also go to <nuxt-link to="/qvuex">Qvuex pafe</nuxt-link></p>
+      <br />
+      <ul v-for="q in questions">
+        <li>
+          <nuxt-link   :to="`/questions/${q.id}`"> {{ q.question }}</nuxt-link>
+
+        </li>
+      </ul>
 
 
-<!--      -->
+
+
+      <!--      -->
     </div>
 
     <div class="flex flex-col mt-10 text-sm text-white sm:flex-row"></div>
@@ -31,11 +43,29 @@
 
 <script>
 export default {
-
+data(){
+  return {
+    id:1
+  }
+},
   name: "Home"
   ,methods:{
 
 
+  },
+  computed: {
+// Bring values from vuex to pass them above in template
+//the logic of saving data is in index.js in store folder (vuex)
+    questions() {
+      //this will send list of all questions (id, question, details)
+      return this.$store.state.all;
+
+    }
+    ,
+    // Do not use this . it is only send last entered question
+    // question() {
+    //   return this.$store.state.question;
+    // }
   }
 };
 </script>

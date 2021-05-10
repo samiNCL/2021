@@ -4,7 +4,7 @@ export default ({ store }) => {
   window.onNuxtReady(() => {
     new VuexPersistence({
       /* your options */
-       key: 'QandA-vuex',
+       key: 'QandA-vuex-OnMyLocal',
     }).plugin(store);
   });
 };

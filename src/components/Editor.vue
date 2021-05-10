@@ -40,7 +40,7 @@ How to move this with you.
 
      <td><tr class="border-dotted border-2 border-light-blue-200"
       >
-       <nuxt-link   to="#"> {{ q.question }}</nuxt-link>
+       <nuxt-link   :to="`/questions/${q.id}`"> {{ q.question }}</nuxt-link>
       </tr></td>
     </table>
 
@@ -59,12 +59,13 @@ export default {
 // Bring values from vuex to pass them above in template
 //the logic of saving data is in index.js in store folder (vuex)
     questions() {
-      return this.$store.state.list;
+      // return this.$store.state.list;
+      return this.$store.state.all;
     }
-    ,
-    question() {
-      return this.$store.state.question;
-    }
+    // ,
+    // question() {
+    //   return this.$store.state.question;
+    // }
   }
   ,
   name: "my-component",
@@ -106,12 +107,9 @@ export default {
 
       // Also , save to vuex for persistence
       //prevent duplication. It compares new item with the last one only.
-      if (this.question.indexOf(this.message) === -1) {
+
         this.$store.commit("add", this.message);
-      } else {
-        this.successMessage ="";
-        this.errorMessage = "Error. text is empty or already sent."
-      }
+
     },
 
     // console.log("Your question saved: " + this.message);

@@ -107,7 +107,7 @@ Solved. Thanks God
 
     <ul class="block group" v-bind:style="{ display: changeDisplayQ }">
       <li class="font-bold text-lg aq" v-for="q in OtherQuestions">
-        <nuxt-link :to="q.id">  {{ "👉  " + " " + q.question }}</nuxt-link>
+        <nuxt-link :to="q.id">  {{ "👉  "  + q.question }}</nuxt-link>
       </li>
     </ul>
 
@@ -137,28 +137,7 @@ export default {
     return {
       isActive: false,
       id: this.$route.params.id,
-      posts: [
-        {
-          id: "1",
-          question: "What is yarn?",
-          detail: "It is a good tool!"
-        },
-        {
-          id: "2",
-          question: "What is Nuxt?",
-          detail: "It is a cool framework!"
-        },
-        {
-          id: "3",
-          question: "What is Vite?",
-          detail: "It can be a good tool!"
-        },
-        {
-          id: "4",
-          question: "What is Bash?",
-          detail: "Is it programming language? What the differences between zsh and sh"
-        }
-      ],
+      //
       display: "none",
       displayQ: "block"
     };
@@ -171,10 +150,17 @@ export default {
       return this.displayQ;
     },
     post() {
-      return this.posts.find(post => post.id === this.id);
+      // return this.posts.find(post => post.id === this.id)
+      // return this.$store.state.questions.all.find(post => post.id === this.id);
+      return this.$store.state.all.find(post => post.id === this.id);
+
     },
     OtherQuestions() {
-      return this.posts.filter(post => post.id !== this.id);
+      // return this.posts.filter(post => post.id !== this.id);
+      // return this.$store.state.questions.all.filter(post => post.id !== this.id);
+      return this.$store.state.all.filter(post => post.id !== this.id);
+
+
     }
   },
   methods: {
