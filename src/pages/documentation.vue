@@ -1,7 +1,8 @@
 <template>
   <div class="text-left pt-24">
     <div>
-      <h3>Installation</h3>
+      ~Soon
+      <!-- <h3>Installation</h3>
       <ul>
         <li>
           <div class="inline-flex flex-col w-10/12 lg:w-3/4">
@@ -25,9 +26,9 @@
           See the
           <a href="https://tailwindcss.com/docs/theme">documentation</a> for more details.
         </li>
-      </ul>
+      </ul> -->
 
-      <iframe
+      <!-- <iframe
         src="https://docs.google.com/presentation/d/e/2PACX-1vTNyB0zgiJuR-VbJy-B9COoaVl81dld6Ahhx6Q1CDPXtCX7RykgotC2q-JfI2Ibg7AeBtRhN3xC8vqk/embed?start=false&loop=true&delayms=5000"
         frameborder="0"
         width="500"
@@ -35,7 +36,7 @@
         allowfullscreen="true"
         mozallowfullscreen="true"
         webkitallowfullscreen="true"
-      ></iframe>
+      ></iframe> -->
     </div>
   </div>
 </template>

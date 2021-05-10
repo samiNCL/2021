@@ -17,6 +17,12 @@
         </ul>
         <p style="margin-top: 10%; border-top: solid">s.s.a.alghamdi2 [at] ncl.ac.uk</p>
       </div>
+<!--      -->
+
+
+
+
+<!--      -->
     </div>
 
     <div class="flex flex-col mt-10 text-sm text-white sm:flex-row"></div>
@@ -25,7 +31,12 @@
 
 <script>
 export default {
+
   name: "Home"
+  ,methods:{
+
+
+  }
 };
 </script>
 

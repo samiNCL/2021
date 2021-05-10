@@ -77,12 +77,12 @@ export default {
     };
   },
   // ... with a link and send to twitter
+  // mounted() {
+  //   if (localStorage.note) {
+  //     this.note = localStorage.note;
+  //   }
+  // },
 
-  mounted() {
-    if (localStorage.note) {
-      this.note = localStorage.note;
-    }
-  },
   methods: {
     // inputFunction:function()  {
     //   // var x = e.target.value;
@@ -105,6 +105,7 @@ export default {
 
 
       // Also , save to vuex for persistence
+      //prevent duplication. It compares new item with the last one only.
       if (this.question.indexOf(this.message) === -1) {
         this.$store.commit("add", this.message);
       } else {
