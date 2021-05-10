@@ -1,12 +1,12 @@
 <template>
   <!-- here you used v-on:click , v-bind , computed (return) , method that affect computed
  -->
-<!-- Posts is an array . Computed method used to dind the current selected. It called post. each post is an object has three
-elements. You access them like: post.id , post.question , post.detail etc..
-Now either change your vuex to have these elements. or .. you can put an id . it is easy.
-id++ pushed to the state then shared every where. -> Change vuex.
+  <!-- Posts is an array . Computed method used to dind the current selected. It called post. each post is an object has three
+  elements. You access them like: post.id , post.question , post.detail etc..
+  Now either change your vuex to have these elements. or .. you can put an id . it is easy.
+  id++ pushed to the state then shared every where. -> Change vuex.
 
- -->
+   -->
   <div>
     <!--  -->
     <div class="pt-24 font-sans lg:flex items-center justify-center bg-blue-darker w-full py-8">
@@ -27,7 +27,7 @@ id++ pushed to the state then shared every where. -> Change vuex.
             href="#"
             class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"
             v-on:click="DisplayFunction"
-            >Answer</a
+          >Answer</a
           >
 
           <!--    Put edit bellow        -->
@@ -35,7 +35,7 @@ id++ pushed to the state then shared every where. -> Change vuex.
           <!-- 1 -->
 
           <a href="#" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4" onclick="typeWriter2()"
-            >Edit</a
+          >Edit</a
           >
 
           <!-- 2 -->
@@ -45,7 +45,7 @@ id++ pushed to the state then shared every where. -> Change vuex.
           <!-- 3 -->
           <br/>
 
-<br />
+          <br />
           <script>
             let i2 = 0;
             let txt2 = "Sorry. This question is not editable.";
@@ -67,31 +67,31 @@ id++ pushed to the state then shared every where. -> Change vuex.
       <p class="aqx" id="demo max-w-sm"></p>
       <!-- Put any side here like date of the post future work? -->
       <!--  -->
-     </div>
+    </div>
 
 
-<!-- Twitter hashtag button send .. To Twitter -->
- <div>
+    <!-- Twitter hashtag button send .. To Twitter -->
+    <div>
 
       <a
-      href="https://twitter.com/intent/tweet?button_hashtag=QandACommunity"
-      class="twitter-hashtag-button"
-      data-size="large"
-      v-bind:data-text="post.question"
-      data-lang="en"
-      data-show-count="false">
-       Q&amp;ACommunity
-      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </a>
+        href="https://twitter.com/intent/tweet?button_hashtag=QandACommunity"
+        class="twitter-hashtag-button"
+        data-size="large"
+        v-bind:data-text="post.question"
+        data-lang="en"
+        data-show-count="false">
+        Q&amp;ACommunity
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </a>
 
-  </div>
-  <br/>
-<!--  End ToTwitter-->
-<!-- -->
+    </div>
+    <br/>
+    <!--  End ToTwitter-->
+    <!-- -->
 
-<!--think how to do routing for your own data rather than using hard data-->
+    <!--think how to do routing for your own data rather than using hard data-->
 
-<!--  -->
+    <!--  -->
 
 
 

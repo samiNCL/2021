@@ -6,23 +6,23 @@ They both take the input of text area so I can deal with it. V-model much easier
 
 How to move this with you.
 -->
-    <form style="margin: 1%" class="p-8" @submit.prevent="noSubmit" >
+    <form class="p-8" style="margin: 1%" @submit.prevent="noSubmit">
       <label class="block mb-2 text-sm font-semibold" for="message">
         {{ $t("contact.message") }}
       </label>
       <!-- First V-model, then you can use it in template by {{ message}}
         Or in methods by define it in Data , then method to handle it by (this. )-->
       <textarea
-        style="border-style: double"
-        v-model="message"
-        rows="4"
-        cols="80"
         id="message"
+        v-model="message"
         class="w-full px-3 py-3 text-lg placeholder-gray-200 rounded shadow bg-surface focus:outline-none focus:shadow-outline"
+        cols="80"
         placeholder="✍️"
+        rows="4"
+        style="border-style: double"
       />
 
-      <button v-on:click="handleSubmit" class="p-2 mt-2 btn btn-primary rounded-full" type="submit">
+      <button class="p-2 mt-2 btn btn-primary rounded-full" type="submit" v-on:click="handleSubmit">
         {{ $t("contact.send") }}
       </button>
 
@@ -34,18 +34,17 @@ How to move this with you.
       </p>
     </form>
     <br />
-     <p class="font-semibold clr text-lg">{{ message }}</p>
+    <p class="font-semibold clr text-lg">{{ message }}</p>
 
-<table v-for="q in questions">
+    <table v-for="q in questions">
 
-     <td><tr class="border-dotted border-2 border-light-blue-200"
-      >
-       <nuxt-link   :to="`/questions/${q.id}`"> {{ q.question }}</nuxt-link>
-      </tr></td>
+      <td>
+        <tr class="border-dotted border-2 border-light-blue-200"
+        >
+          <nuxt-link :to="`/questions/${q.id}`"> {{ q.question }}</nuxt-link>
+        </tr>
+      </td>
     </table>
-
-
-
 
 
   </div>
@@ -74,7 +73,7 @@ export default {
     return {
       message: "",
       errorMessage: "",
-      successMessage: "",
+      successMessage: ""
 
     };
   },
@@ -109,29 +108,39 @@ export default {
       // Also , save to vuex for persistence
       //prevent duplication. It compares new item with the last one only.
 
-        this.$store.commit("add", this.message);
+      this.$store.commit("add", this.message);
 
     },
 
     // console.log("Your question saved: " + this.message);
     noSubmit: function() {
       console.log("ok");
-    }},
+    }
+  }
 
 
-}
+};
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-hr {width: 13rem}
-h1,h2,h3,h4,h5,h6{ font-family: 'Itim', cursive;}
 
-a:hover ,tr:hover {
+hr {
+  width: 13rem
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Itim', cursive;
+}
+
+a:hover, tr:hover {
   color: palevioletred;
   border-color: #DB7093;
 }
+
 /* .clr { color:#add9e8}  Nice color light blue for dark mode*/
-.clr { color:#afeede}
+.clr {
+  color: #afeede
+}
 
 </style>

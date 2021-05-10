@@ -22,14 +22,14 @@
 
 <!-- All saved questions looped and linked to test folder page for dynamic pages
  Now make this work for questions folder by change the link and adapt it to that page.-->
-      <p>Go to test page from link bellow, also go to <nuxt-link to="/qvuex">Qvuex pafe</nuxt-link></p>
-      <br />
-      <ul v-for="q in questions">
-        <li>
-          <nuxtLink   :to="`/questions/${q.id}`"> {{ q.question }}</nuxtLink>
+<!--      <p>Go to test page from link bellow, also go to <nuxt-link to="/qvuex">Qvuex pafe</nuxt-link></p>-->
+<!--      <br />-->
+<!--      <ul v-for="q in questions">-->
+<!--        <li>-->
+<!--          <nuxtLink   :to="`/questions/${q.id}`"> {{ q.question }}</nuxtLink>-->
 
-        </li>
-      </ul>
+<!--        </li>-->
+<!--      </ul>-->
 
 
 
@@ -45,7 +45,7 @@
 export default {
 data(){
   return {
-    id:1
+    // id:1
   }
 },
   name: "Home"
