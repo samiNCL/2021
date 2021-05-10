@@ -1,6 +1,6 @@
 
 export const state = () => ({
-  id:4,
+  id:"5",
   question:'',
   all: [
     {
@@ -22,7 +22,12 @@ export const state = () => ({
       id: "4",
       question: "What is Bash?",
       detail: "Is it programming language? What the differences between zsh and sh"
-    }
+    },
+    {
+      id: "5",
+      question: "What is Sami?",
+      detail: "work on all these stuffs and more"
+    },
   ]
 
 })
@@ -34,10 +39,10 @@ export const mutations = {
     //push the question
     state.question=q;
     //save them to object
-    let obj={id: state.id,question:state.question,detail:"it is empty"}
+    const obj={id: state.id,question:state.question,detail:"it is empty"}
     //later pass detail with the questions.
     //save this obj  to the all questions (object)
-    state.all.push(obj);
+    state.all.push(obj); //Thanks God !
     //in your app deal with this list to render
   }
 }

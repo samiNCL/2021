@@ -26,7 +26,7 @@
       <br />
       <ul v-for="q in questions">
         <li>
-          <nuxt-link   :to="`/questions/${q.id}`"> {{ q.question }}</nuxt-link>
+          <nuxtLink   :to="`/questions/${q.id}`"> {{ q.question }}</nuxtLink>
 
         </li>
       </ul>

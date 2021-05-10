@@ -54,6 +54,7 @@ How to move this with you.
 </template>
 
 <script>
+
 export default {
   computed: {
 // Bring values from vuex to pass them above in template
