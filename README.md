@@ -15,7 +15,8 @@ yarn dev
  'Node.js' is needed. Use 'nbm' to install 'yarn''. Then use yarn tool as above.
 
 ### To see live demo visit this link:
-https://qcomunity.herokuapp.com
+ https://qnewcommunity.herokuapp.com
+ 
 
 
 ### Sami Saeed A Alghamdi
